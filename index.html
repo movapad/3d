@@ -27,7 +27,78 @@
             <canvas id="3dView"></canvas>
         </div>
         <div class="view">
-            <canvas id="technicalViews"></canvas>
+            <svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+    <!-- Górny widok - prawidłowy cylinder -->
+    <g transform="translate(50, 50)">
+        <!-- Podstawa cylindra -->
+        <ellipse cx="150" cy="150" rx="100" ry="25" fill="#303030" stroke="black"/>
+        
+        <!-- Ściana boczna -->
+        <path d="M50,150 Q150,180 250,150 L250,142 Q150,172 50,142 Z" fill="#202020"/>
+        
+        <!-- Górna powierzchnia -->
+        <ellipse cx="150" cy="142" rx="100" ry="25" fill="#404040"/>
+        
+        <!-- Powierzchnia dotykowa -->
+        <ellipse cx="150" cy="142" rx="90" ry="22.5" fill="#505050" stroke="#606060"/>
+        
+        <!-- Wymiary -->
+        <line x1="50" y1="180" x2="250" y2="180" stroke="blue" stroke-width="1" marker-end="url(#arrow)" marker-start="url(#arrow)"/>
+        <text x="150" y="195" text-anchor="middle" fill="blue">50mm</text>
+        
+        <line x1="270" y1="142" x2="270" y2="150" stroke="blue" stroke-width="1" marker-end="url(#arrow)" marker-start="url(#arrow)"/>
+        <text x="285" y="146" fill="blue">8mm</text>
+    </g>
+
+    <!-- Przekrój -->
+    <g transform="translate(400, 50)">
+        <!-- Warstwy w przekroju -->
+        <rect x="50" y="100" width="200" height="8" fill="none" stroke="black"/>
+        
+        <!-- Wewnętrzne warstwy -->
+        <g transform="translate(50, 100)">
+            <rect x="0" y="0" width="200" height="1" fill="#87CEEB"/>
+            <rect x="0" y="1" width="200" height="1" fill="#cd7f32"/>
+            <rect x="0" y="2" width="200" height="1" fill="gray"/>
+            <rect x="0" y="3" width="200" height="1" fill="#cd7f32"/>
+            <rect x="0" y="4" width="200" height="2" fill="#00ab6b"/>
+            <rect x="0" y="6" width="200" height="2" fill="silver"/>
+        </g>
+        
+        <!-- Wymiary -->
+        <line x1="40" y1="100" x2="40" y2="108" stroke="blue" stroke-width="1" marker-end="url(#arrow)" marker-start="url(#arrow)"/>
+        <text x="30" y="104" fill="blue">8mm</text>
+        
+        <line x1="50" y1="120" x2="250" y2="120" stroke="blue" stroke-width="1" marker-end="url(#arrow)" marker-start="url(#arrow)"/>
+        <text x="150" y="135" text-anchor="middle" fill="blue">50mm</text>
+    </g>
+
+    <!-- Legenda -->
+    <g transform="translate(400, 200)">
+        <text x="0" y="0" font-weight="bold">Warstwy:</text>
+        <rect x="0" y="10" width="20" height="10" fill="#87CEEB"/>
+        <text x="30" y="20">Panel dotykowy (0.1mm)</text>
+        
+        <rect x="0" y="30" width="20" height="10" fill="#cd7f32"/>
+        <text x="30" y="40">Cewki (0.4mm)</text>
+        
+        <rect x="0" y="50" width="20" height="10" fill="gray"/>
+        <text x="30" y="60">Membrana LCP (0.2mm)</text>
+        
+        <rect x="0" y="70" width="20" height="10" fill="#00ab6b"/>
+        <text x="30" y="80">PCB (1.6mm)</text>
+        
+        <rect x="0" y="90" width="20" height="10" fill="silver"/>
+        <text x="30" y="100">Radiator (5.3mm)</text>
+    </g>
+
+    <!-- Definicje znaczników -->
+    <defs>
+        <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+            <path d="M0,0 L0,6 L9,3 z" fill="blue"/>
+        </marker>
+    </defs>
+</svg>
         </div>
     </div>
 
